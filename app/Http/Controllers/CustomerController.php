@@ -33,7 +33,7 @@ class CustomerController extends Controller
 //            ->where('is_main',1 )
 //            ->get();
 
-        $customers = Customers::select('customers.contpaqi as id','customers.commercial_name','customers.contact_name','customers.last_name','customers.email','customers.rfc','customers.phone','customers.customer_status'
+        $customers = Customers::select('customers.contpaqi as contpaqi_id','customers.id','customers.commercial_name','customers.contact_name','customers.last_name','customers.email','customers.rfc','customers.phone','customers.customer_status'
         ,'sellers.id as id_seller','sellers.name as name_seller'        )
         ->leftjoin('sellers', 'customers.seller_id','=','sellers.id')->get();
      
@@ -99,8 +99,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customers = Customers::find($id);
-            $sellers = Sellers::select('id', 'name')->get();
-
+        $sellers = Sellers::select('id', 'name')->get();
         return view('customer.edit', compact('customers','sellers'));
     }
 

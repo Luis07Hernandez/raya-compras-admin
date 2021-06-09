@@ -34,6 +34,7 @@
                 <table class="table table-striped- table-bordered table-hover table-checkable" id="mtable2" style="font-size: inherit;">
                     <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Id Contpaqi</th>
                         <th>Nombre comercial</th>
                         <!-- <th>Nombre de contacto</th> -->
@@ -48,8 +49,8 @@
                     <tbody>
                         @foreach($customers as $customer)
                             <tr class="odd gradeX">
-
                                 <td>{{$customer->id}}</td>
+                                <td>{{$customer->contpaqi_id}}</td>
                                 <td>{{$customer->commercial_name}}</td>
                                 <!-- <td>{{$customer->contact_name}}</td> -->
                                 <td style="word-wrap: break-word;">{{$customer->email}}</td>
@@ -155,8 +156,10 @@
                     }],
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-                },"order":[
-                    [0,'desc']
+                },
+                order: [[ 0, "desc" ]],
+                columnDefs:[
+                    {"targets": [0],"visible": false,"orderable": true,"searchable": false},
                 ],
                 "fnDrawCallback": function (o) {
             

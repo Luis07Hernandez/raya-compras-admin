@@ -32,7 +32,7 @@ class CustomerRequest extends FormRequest
                     'email' => 'required',
                     'phone' => 'required|max:15',
                     'rfc' => 'required|max:15',
-                    'commercial_name' => 'required|max:15',
+                    'commercial_name' => 'required|max:80',
                     'password' => 'nullable|max:20|min:5',
 
                     'confirm_password' =>'same:password',
